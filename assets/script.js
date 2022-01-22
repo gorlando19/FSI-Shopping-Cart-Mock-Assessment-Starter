@@ -6,20 +6,19 @@ const unitPrice = 15.00
 //declariong variables
 let qtytotal = 1
 
-
+//assign html elements
 let unitPricePar = document.getElementById('unitPrice')
-console.log(unitPrice)
-unitPricePar.append = '$',unitPrice, ' each'
 let totalPrice = document.querySelector('.total-price')
 let val = document.createElement('span')
 let valId = document.createElement('id')
-valId.append('currency')
-val.append(valId)
-totalPrice.append(val)
+let qtyrequested = document.querySelector('.total-quantity')
+let removebtn = document.querySelector('.remove')
 
-
+//Initializing fields
+unitPricePar.innerHTML = '$'+ unitPrice + '.00 each'
 totalPrice.innerHTML = 'Total Price: $' +unitPrice*qtytotal
-qtyrequested = document.querySelector('.total-quantity')
+
+//listeners
 qtydown.addEventListener('click', function(){
     qtytotal --
     if(qtytotal<0){
@@ -28,13 +27,13 @@ qtydown.addEventListener('click', function(){
     qtyrequested.innerHTML = 'Quantity: ' + qtytotal
     totalPrice.innerHTML = 'Total Price: $' +unitPrice*qtytotal
 })
+
 qtyup.addEventListener('click', function(){
     qtytotal ++
     qtyrequested.innerHTML = 'Quantity: ' + qtytotal
     totalPrice.innerHTML = 'Total Price: $' +unitPrice*qtytotal
 })
 
-let removebtn = document.querySelector('.remove')
 removebtn.addEventListener('click', function(){
     let itemtoremove = document.querySelector('.cart-item')
     itemtoremove.remove()
